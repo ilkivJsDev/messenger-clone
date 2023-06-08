@@ -1,28 +1,27 @@
-import { Inter } from 'next/font/google'
-import AuthContext from './context/AuthContext'
-import ToasterContext from './context/ToasterContext'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import AuthContext from './context/AuthContext'
+import ActiveStatus from './components/ActiveStatus'
+import ToasterContext from './context/ToasterContext'
 
 export const metadata = {
-	title: 'Messenger clone',
-	description: 'Messenger clone',
+  title: 'Messenger',
+  description: 'Messenger Clone',
 }
 
 export default function RootLayout({
-	children,
+  children,
 }: {
-	children: React.ReactNode
+  children: React.ReactNode
 }) {
-	return (
-		<html lang='en'>
-			<body className={inter.className}>
-				<AuthContext>
-					<ToasterContext />
-					{children}
-				</AuthContext>
-			</body>
-		</html>
-	)
+  return (
+    <html lang="en">
+      <body>
+        <AuthContext>
+          <ToasterContext />
+          <ActiveStatus />
+          {children}
+        </AuthContext>
+      </body>
+    </html>
+  )
 }

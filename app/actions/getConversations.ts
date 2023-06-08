@@ -20,7 +20,7 @@ const getConversations = async () => {
       },
       include: {
         users: true,
-        message: {
+        messages: {
           include: {
             sender: true,
             seen: true,
